@@ -7,7 +7,7 @@ import dotenv from 'dotenv';
 import { intervals } from './controlers/intervals.js';
 import { getNoticias } from './controlers/noticias.js';
 
-const CONNECTION_URL = process.env.CONNECTION_URL || 'mongodb+srv://faus:Faustino5@cluster0.dvpdv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const CONNECTION_URL = process.env.CONNECTION_URL 
 const PORT = process.env.PORT || 5000
 
 const app = express();
