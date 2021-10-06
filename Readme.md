@@ -1,0 +1,2 @@
+# Notifai backend
+Server using puppeteer to scrap data from Informatics School of the National University of Comahue to notify the students in an React Native made app. This is done using socket.io to send the data.
