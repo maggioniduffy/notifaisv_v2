@@ -1,4 +1,6 @@
-import puppeteer from 'puppeteer'
+import puppeteer from 'puppeteer';
+import { uid } from 'uid';
+
 const URL = 'https://faiweb.uncoma.edu.ar/index.php/bolsa-de-trabajo'
 
 async function fetchTrabajos() {
@@ -25,10 +27,15 @@ async function fetchTrabajos() {
             return trabajos
         })
     } catch (e) {
-        console.log(e)
+        throw new Error("error en trabajos")
     }
-    await browser.close()
-    console.log(trabajos)
+
+    await browser.close();
+
+    trabajos = trabajos.map((t) => (
+        {...t, id: uid(100)}
+    ))
+
     return trabajos
 }
 

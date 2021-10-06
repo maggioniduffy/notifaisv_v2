@@ -30,7 +30,7 @@ setInterval(async () => {
     } catch (error) {
         console.log(error);
     }
-}, 100000)
+}, 1000 * 3)
 
 server.listen(3000, () => {
   console.log('listening on *:3000');

@@ -1,5 +1,8 @@
 import puppeteer from 'puppeteer'
+import { uid } from 'uid';
+
 const URL = 'https://faiweb.uncoma.edu.ar/index.php/70-extension/pasantias'
+console.log(uid());
 
 async function fetchPasantias() {
     const browser = await puppeteer.launch({
@@ -25,11 +28,14 @@ async function fetchPasantias() {
             return pasantias
         })
     } catch (error) {
-        console.log(error)
+        throw new Error("error en pasantias")
     }
     await browser.close()
     
-    console.log(pasantias);
+    pasantias = pasantias.map((p) => (
+        {...p, id: uid(100)}
+    ))
+    
     return pasantias;
 }
 
