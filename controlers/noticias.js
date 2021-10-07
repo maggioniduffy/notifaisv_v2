@@ -2,7 +2,7 @@ import { NoticiaSchema } from '../models/index.js';
 
 export const getNoticias = async () => {
     try {
-        const noticias = await NoticiaSchema.find().sort({x:-1});;
+        const noticias = await NoticiaSchema.find().sort({addedAt:-1});;
         return noticias.slice(0,6);
     } catch (error) {
         console.log(error);
@@ -11,7 +11,7 @@ export const getNoticias = async () => {
 
 export const addNoticias = async (noticias) => {
     noticias.forEach( async (noticia) => {
-        const newNoticia = new NoticiaSchema({ ...noticia, addedAt: new Date().toISOString()})
+        const newNoticia = new NoticiaSchema({ ...noticia, addedAt: new Date()})
         try {
             await newNoticia.save();
             console.log("NEW Noticia ok")
