@@ -29,13 +29,11 @@ async function fetchNoticias() {
     
     await browser.close()
 
-    noticias = noticias.map((n) => (
+    const noticias_id = noticias.map((n) => (
         {... n, id: uid(100)}
     ))
 
-    console.log(noticias)
-
-    return noticias
+    return noticias_id
 }
 
 export default fetchNoticias

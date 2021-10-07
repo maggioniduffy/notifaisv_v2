@@ -32,11 +32,11 @@ async function fetchTrabajos() {
 
     await browser.close();
 
-    trabajos = trabajos.map((t) => (
+    const trabajos_id = trabajos.map((t) => (
         {...t, id: uid(100)}
     ))
 
-    return trabajos
+    return trabajos_id;
 }
 
 export default fetchTrabajos

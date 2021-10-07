@@ -32,11 +32,11 @@ async function fetchPasantias() {
     }
     await browser.close()
     
-    pasantias = pasantias.map((p) => (
+    const pasantias_id = pasantias.map((p) => (
         {...p, id: uid(100)}
     ))
     
-    return pasantias;
+    return pasantias_id;
 }
 
 export default fetchPasantias;
