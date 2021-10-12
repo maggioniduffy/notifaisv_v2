@@ -1,22 +1,12 @@
-import { TrabajoSchema } from '../models/index.js';
+const TRABAJOS_KEY = 'TRABAJOS';
 
 export const getTrabajos = async () => {
     try {
-        const trabajos = await TrabajoSchema.find().sort({addedAt:-1});;
-        return trabajos.slice(0,6);
     } catch (error) {
         console.log(error);
     }
 }
 
 export const addTrabajos = async (trabajos) => {
-    trabajos.forEach( async (trabajo) => {
-        const newTrabajo = new TrabajoSchema({ ...trabajo, addedAt: new Date()})
-        try {
-            await newTrabajo.save();
-            console.log("NEW Noticia ok")
-        } catch (error) {
-            console.log(error)
-        }
-    })
+
 }
