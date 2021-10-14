@@ -19,7 +19,7 @@ async function handleUpdate(url, type, key){
     try { 
         const data = await fetch(url);
         await add(data, key);
-        io.emit(type, data);
+        io.broadcast.emit(type, data);
     } catch (error) {
         console.log(error)
     }

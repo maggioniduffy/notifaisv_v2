@@ -21,21 +21,21 @@ io.on('connection', (socket) => {
     socket.on('login_noticias', async () => {
       const noticias = await get(NOTICIAS_KEY);
       if(noticias){
-        socket.broadcast.to(socket.id).emit( 'noticias', {noticias : noticias} );
+        socket.broadcast.to(socket.id).emit('noticias', {noticias : noticias} );
       }
     })
 
     socket.on('login_pasantias', async () => {
       const pasantias = await get(PASANTIAS_KEY);
       if(pasantias){
-        socket.broadcast.to(socket.id).emit( 'pasantias', {pasantias : pasantias} );
+        socket.broadcast.to(socket.id).emit('pasantias', {pasantias : pasantias} );
       }
     })
 
     socket.on('login_trabajos', async () => {
       const trabajos = await get(TRABAJOS_KEY);
       if(trabajos){
-        socket.broadcast.to(socket.id).emit( 'trabajos', {trabajos : trabajos} );
+        socket.broadcast.to(socket.id).emit('trabajos', {trabajos : trabajos} );
       }
     })
     
