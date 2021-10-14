@@ -17,6 +17,7 @@ export const redisClient = redis.createClient();
 
 dotenv.config()
 
+io.sockets.setMaxListeners(1000);
 io.on('connection', (socket) => {
     socket.on('login_noticias', async () => {
       const noticias = await get(NOTICIAS_KEY);
