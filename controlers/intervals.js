@@ -12,14 +12,18 @@ export async function intervals(){
         } catch (error) {
             console.log(error);
         }
-    }, 1000 * 3)
+    }, 1000 * 60 * 60);
 }
 
 async function handleUpdate(url, type, key){
     try { 
         const data = await fetch(url);
+        const last_data = get(key);
+        for( i in data){
+            //comparar para ver que actualizar y que emitir
+        }
         await add(data, key);
-        io.broadcast.emit(type, data);
+        io.emit(type, data);
     } catch (error) {
         console.log(error)
     }
